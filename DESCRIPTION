@@ -1,4 +1,4 @@
-Package: blaster2
+Package: blaster
 Type: Package
 Title: Native R Implementation of an Efficient BLAST-Like Algorithm
 Version: 1.0.6
