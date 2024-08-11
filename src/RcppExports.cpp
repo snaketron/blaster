@@ -12,7 +12,7 @@ Rcpp::Rostream<false>& Rcpp::Rcerr = Rcpp::Rcpp_cerr_get();
 
 // read_dna_fasta
 DataFrame read_dna_fasta(std::string filename, std::string filter, std::string non_standard_chars);
-RcppExport SEXP _blaster2_read_dna_fasta(SEXP filenameSEXP, SEXP filterSEXP, SEXP non_standard_charsSEXP) {
+RcppExport SEXP _blaster_read_dna_fasta(SEXP filenameSEXP, SEXP filterSEXP, SEXP non_standard_charsSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -25,7 +25,7 @@ END_RCPP
 }
 // read_protein_fasta
 DataFrame read_protein_fasta(std::string filename, std::string filter, std::string non_standard_chars);
-RcppExport SEXP _blaster2_read_protein_fasta(SEXP filenameSEXP, SEXP filterSEXP, SEXP non_standard_charsSEXP) {
+RcppExport SEXP _blaster_read_protein_fasta(SEXP filenameSEXP, SEXP filterSEXP, SEXP non_standard_charsSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -38,7 +38,7 @@ END_RCPP
 }
 // dna_blast
 void dna_blast(std::string query_table, std::string db_table, std::string output_file, int maxAccepts, int maxRejects, double minIdentity, std::string strand);
-RcppExport SEXP _blaster2_dna_blast(SEXP query_tableSEXP, SEXP db_tableSEXP, SEXP output_fileSEXP, SEXP maxAcceptsSEXP, SEXP maxRejectsSEXP, SEXP minIdentitySEXP, SEXP strandSEXP) {
+RcppExport SEXP _blaster_dna_blast(SEXP query_tableSEXP, SEXP db_tableSEXP, SEXP output_fileSEXP, SEXP maxAcceptsSEXP, SEXP maxRejectsSEXP, SEXP minIdentitySEXP, SEXP strandSEXP) {
 BEGIN_RCPP
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< std::string >::type query_table(query_tableSEXP);
@@ -54,7 +54,7 @@ END_RCPP
 }
 // protein_blast
 void protein_blast(std::string query_table, std::string db_table, std::string output_file, int maxAccepts, int maxRejects, double minIdentity, int wordsize);
-RcppExport SEXP _blaster2_protein_blast(SEXP query_tableSEXP, SEXP db_tableSEXP, SEXP output_fileSEXP, SEXP maxAcceptsSEXP, SEXP maxRejectsSEXP, SEXP minIdentitySEXP, SEXP wordsizeSEXP) {
+RcppExport SEXP _blaster_protein_blast(SEXP query_tableSEXP, SEXP db_tableSEXP, SEXP output_fileSEXP, SEXP maxAcceptsSEXP, SEXP maxRejectsSEXP, SEXP minIdentitySEXP, SEXP wordsizeSEXP) {
 BEGIN_RCPP
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< std::string >::type query_table(query_tableSEXP);
@@ -70,14 +70,14 @@ END_RCPP
 }
 
 static const R_CallMethodDef CallEntries[] = {
-    {"_blaster2_read_dna_fasta", (DL_FUNC) &_blaster2_read_dna_fasta, 3},
-    {"_blaster2_read_protein_fasta", (DL_FUNC) &_blaster2_read_protein_fasta, 3},
-    {"_blaster2_dna_blast", (DL_FUNC) &_blaster2_dna_blast, 7},
-    {"_blaster2_protein_blast", (DL_FUNC) &_blaster2_protein_blast, 7},
+    {"_blaster_read_dna_fasta", (DL_FUNC) &_blaster_read_dna_fasta, 3},
+    {"_blaster_read_protein_fasta", (DL_FUNC) &_blaster_read_protein_fasta, 3},
+    {"_blaster_dna_blast", (DL_FUNC) &_blaster_dna_blast, 7},
+    {"_blaster_protein_blast", (DL_FUNC) &_blaster_protein_blast, 7},
     {NULL, NULL, 0}
 };
 
-RcppExport void R_init_blaster2(DllInfo *dll) {
+RcppExport void R_init_blaster(DllInfo *dll) {
     R_registerRoutines(dll, NULL, CallEntries, NULL, NULL);
     R_useDynamicSymbols(dll, FALSE);
 }
