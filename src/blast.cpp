@@ -106,10 +106,11 @@ struct WordSize {
   static const int VALUE = 8; // DNA, default
 };
 
-template <>
-struct WordSize< Protein > {
-  static const int VALUE = 5;
-};
+// template <>
+// struct WordSize< Protein > {
+//   // static const int VALUE = 5;
+//   int VALUE;
+// };
 
 std::string DFtoSeq(DataFrame seq_table)
 {
@@ -247,7 +248,8 @@ void protein_blast(std::string query_table,
                    std::string output_file,
                    int maxAccepts = 1,
                    int maxRejects =  16,
-                   double minIdentity = 0.75) 
+                   double minIdentity = 0.75,
+                   int wordsize = 2) 
 {
 
   std::unique_ptr< SequenceReader< Protein > > dbReader( new FASTA::Reader< Protein >( db_table ) );
@@ -288,7 +290,8 @@ void protein_blast(std::string query_table,
   }
 
   // Index DB
-  Database< Protein > db( WordSize< Protein >::VALUE );
+  // Database< Protein > db( WordSize< Protein >::VALUE );
+  Database< Protein > db(wordsize);
   db.SetProgressCallback(
                          [&]( typename Database< Protein >::ProgressType type, size_t num, size_t total ) {
                            switch( type ) {

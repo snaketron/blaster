@@ -58,6 +58,7 @@ blast <- function(query,
                   maxAccepts = 1,
                   maxRejects = 16,
                   minIdentity = 0.75,
+                  wordsize = 2,
                   alphabet = "nucleotide",
                   strand = "both",
                   output_to_file = FALSE)
@@ -95,7 +96,8 @@ blast <- function(query,
             tmp_file,
             maxAccepts,
             maxRejects,
-            minIdentity)
+            minIdentity,
+            wordsize)
     else
         stop("Supported alphabet include 'nucleotide' and 'protein'.")
 
